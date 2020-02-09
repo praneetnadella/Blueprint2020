@@ -14,11 +14,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-<<<<<<< HEAD
-    public void stockDataEntry(View v) {
-        Intent stock = new Intent(this, StockDataEntry.class);
-        startActivity(stock);
-=======
     public void login (View v) {
         Intent loginIntent = new Intent (this, LoginActivity.class);
         startActivity(loginIntent);
@@ -37,6 +32,5 @@ public class MainActivity extends AppCompatActivity {
     public void stockDataEntry(View v) {
         Intent loginIntent = new Intent (this, StockDataEntry.class);
         startActivity(loginIntent);
->>>>>>> 9a24a50d11d216c72c0bae6ae1be1a5b29ea0b06
     }
 }
