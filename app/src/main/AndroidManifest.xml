@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".FinanceActivity"></activity>
+        <activity android:name=".StockDataDisplay"></activity>
+        <activity android:name=".StockDataEntry" />
         <activity android:name=".MainActivity">
-            <intent-filter>git
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
