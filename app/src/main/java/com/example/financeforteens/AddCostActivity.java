@@ -69,6 +69,7 @@ public class AddCostActivity extends AppCompatActivity {
                                 c.set(Calendar.MONTH, month);
                                 c.set(Calendar.DAY_OF_MONTH, day);
                                 picked = c.getTime();
+                                System.out.println(picked);
                                 if (picked.equals(today))
                                     selectDate.setText("TODAY");
                                 else
@@ -103,6 +104,32 @@ public class AddCostActivity extends AppCompatActivity {
                 category = categoryChooser.getSelectedItem().toString();
 
                 String result = name + "," + cost + "," + date + "," + category;
+
+                System.out.println(result);
+
+                File file = new File(getExternalCacheDir() + "addition.txt");
+                try {
+                    FileUtils.writeStringToFile(file, result, forName("UTF-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Amplify.Storage.uploadFile(
+                        "addition.txt",
+                        file.getAbsolutePath(),
+                        new ResultListener<StorageUploadFileResult>() {
+                            @Override
+                            public void onResult(StorageUploadFileResult result) {
+                                Log.i("StorageQuickStart", "Successfully uploaded: " + result.getKey());
+                            }
+
+                            @Override
+                            public void onError(Throwable error) {
+                                Log.e("StorageQuickstart", "Upload error.", error);
+                            }
+                        }
+                );
+
 
             }
         });
