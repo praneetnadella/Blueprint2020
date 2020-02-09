@@ -13,11 +13,14 @@ import android.widget.Spinner;
 
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.ResultListener;
+import com.amplifyframework.storage.result.StorageDownloadFileResult;
 import com.amplifyframework.storage.result.StorageUploadFileResult;
 
 import org.apache.commons.io.FileUtils;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -107,10 +110,31 @@ public class AddCostActivity extends AppCompatActivity {
 
                 System.out.println(result);
 
-                File file = new File(getExternalCacheDir() + "addition.txt");
+                //File file;
+
+                Amplify.Storage.downloadFile(
+                        "addition.txt",
+                        getExternalCacheDir() + "addition.txt",
+                        new ResultListener<StorageDownloadFileResult>() {
+                            @Override
+                            public void onResult(StorageDownloadFileResult result) {
+                                Log.i("StorageQuickStart", "Successfully downloaded: " + result.getFile().getName());
+                            }
+
+                            @Override
+                            public void onError(Throwable error) {
+                                Log.e("StorageQuickStart", error.getMessage());
+                                File file = new File(getExternalCacheDir() + "addition.txt");
+                            }
+                        }
+                );
+
+                File file = new File(getExternalCacheDir() + "addition.text");
                 try {
-                    FileUtils.writeStringToFile(file, result, forName("UTF-8"));
-                } catch (IOException e) {
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+                    writer.append(result);
+                    writer.close();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 

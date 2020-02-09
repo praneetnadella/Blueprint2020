@@ -2,6 +2,7 @@ package com.example.financeforteens;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -11,6 +12,11 @@ import android.widget.SimpleAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.ResultListener;
+import com.amplifyframework.storage.result.StorageDownloadFileResult;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,16 +45,32 @@ public class FinanceActivity extends AppCompatActivity {
     {
         setTitle("Items Bought");
 
-        String[] titleArr = { "Name", "Sex", "Age", "Location","Email"};
-        String[] descArr = { "Jerry", "Male", "43", "Singapore", "webmaster@dev2qa.com" };
+        ArrayList<String> nameArr = new ArrayList<String>();
+        ArrayList<String> priceList = new ArrayList<String>();
+
+        Amplify.Storage.downloadFile(
+                "addition.txt",
+                getExternalCacheDir() + "addition.txt",
+                new ResultListener<StorageDownloadFileResult>() {
+                    @Override
+                    public void onResult(StorageDownloadFileResult result) {
+                        Log.i("StorageQuickStart", "Successfully downloaded: " + result.getFile().getName());
+                    }
+
+                    @Override
+                    public void onError(Throwable error) {
+                        Log.e("StorageQuickStart", error.getMessage());
+                    }
+                }
+        );
 
         ArrayList<Map<String,Object>> itemDataList = new ArrayList<Map<String,Object>>();;
 
-        int titleLen = titleArr.length;
+        int titleLen = nameArr.size();
         for(int i =0; i < titleLen; i++) {
             Map<String,Object> listItemMap = new HashMap<String,Object>();
-            listItemMap.put("title", titleArr[i]);
-            listItemMap.put("description", descArr[i]);
+            listItemMap.put("title", nameArr.get(i));
+            listItemMap.put("description", priceList.get(i));
             itemDataList.add(listItemMap);
         }
 
