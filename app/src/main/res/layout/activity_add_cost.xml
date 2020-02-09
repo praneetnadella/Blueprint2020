@@ -29,11 +29,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:height="50dp"
+            android:background="#f28a13"
             android:minWidth="140dp"
             android:text="Today"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
     </LinearLayout>
