@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "financeforteens",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authfinanceforteensa3a2df00",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
