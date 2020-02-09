@@ -9,16 +9,29 @@
 
     <ListView
         android:id="@+id/ListViewExample"
-        android:layout_width="292dp"
-        android:layout_height="610dp"
-        android:divider= "@android:color/holo_green_light"
-        android:dividerHeight="5dp"
-        android:clickable="true"
+        android:layout_width="264dp"
+        android:layout_height="413dp"
         android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:divider="@android:color/holo_green_light"
+        android:dividerHeight="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576" />
+        app:layout_constraintTop_toBottomOf="@+id/ListViewExample" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
