@@ -21,4 +21,14 @@ public class MainScreenActivity extends AppCompatActivity {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
     }
+
+    public void stockSim(View v) {
+        Intent loginIntent = new Intent (this, StockDataEntry.class);
+        startActivity(loginIntent);
+    }
+
+    public void manageAcct(View v) {
+        Intent loginIntent = new Intent (this, FinanceActivity.class);
+        startActivity(loginIntent);
+    }
 }

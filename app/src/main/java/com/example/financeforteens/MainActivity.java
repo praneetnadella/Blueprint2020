@@ -16,6 +16,7 @@ import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 public class MainActivity extends AppCompatActivity {
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
