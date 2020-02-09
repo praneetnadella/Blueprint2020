@@ -4,20 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/background"
     tools:context=".MainScreenActivity">
 
     <Button
         android:id="@+id/signOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="282dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="633dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="280dp"
         android:onClick="signOut"
         android:text="Sign Out"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,10 +23,11 @@
     <Button
         android:id="@+id/stockSim"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginTop="126dp"
         android:onClick="stockSim"
         android:text="Try a stock simulator"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signOut" />
@@ -36,10 +35,11 @@
     <Button
         android:id="@+id/finance"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginTop="80dp"
         android:onClick="manageAcct"
         android:text="Manage your account"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stockSim" />
