@@ -18,6 +18,10 @@ android {
         }
     }
     useLibrary 'org.apache.http.legacy'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -31,7 +35,11 @@ dependencies {
     //For AWSMobileClient only:
     implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.8'
 
-//For the drop-in UI also:
+    //For the drop-in UI also:
     implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.8'
     implementation 'com.amazonaws:aws-android-sdk-auth-ui:2.16.8'
+
+    implementation 'com.amplifyframework:core:0.9.0'
+    implementation 'com.amplifyframework:aws-storage-s3:0.9.0'
+    implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.+'
 }
