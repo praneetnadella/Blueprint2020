@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".AddCostActivity"></activity>
         <activity android:name=".FinanceActivity" />
         <activity android:name=".StockDataDisplay" />
+=======
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".FinanceActivity"></activity>
+        <activity android:name=".StockDataDisplay"></activity>
+>>>>>>> a7666ec8a10dbde019fa1ecff484c5b988480eaf
         <activity android:name=".StockDataEntry" />
         <activity android:name=".MainActivity">
             <intent-filter>
