@@ -7,4 +7,17 @@
     android:background="@color/background"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="307dp"
+        android:layout_height="301dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="215dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

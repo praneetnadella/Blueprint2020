@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
     private void showSignIn() {
         try {
             AWSMobileClient.getInstance().showSignIn(this,
-                    SignInUIOptions.builder().nextActivity(MainScreenActivity.class).build());
+                    SignInUIOptions.builder().nextActivity(MainScreenActivity.class).logo(R.drawable.logo).build());
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

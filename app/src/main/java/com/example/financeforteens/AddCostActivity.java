@@ -102,31 +102,8 @@ public class AddCostActivity extends AppCompatActivity {
                 categoryChooser = findViewById(R.id.categories);
                 category = categoryChooser.getSelectedItem().toString();
 
-                Log.i("date", date);
-
                 String result = name + "," + cost + "," + date + "," + category;
 
-                File file = new File(getExternalCacheDir() + "addition.txt");
-                try {
-                    FileUtils.writeStringToFile(file, result, forName("UTF-8"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Amplify.Storage.uploadFile(
-                        "addition.txt",
-                        file.getAbsolutePath(),
-                        new ResultListener<StorageUploadFileResult>() {
-                            @Override
-                            public void onResult(StorageUploadFileResult result) {
-                                Log.i("StorageQuickStart", "Successfully uploaded: " + result.getKey());
-                            }
-
-                            @Override
-                            public void onError(Throwable error) {
-                                Log.e("StorageQuickstart", "Upload error.", error);
-                            }
-                        }
-                );
             }
         });
 
