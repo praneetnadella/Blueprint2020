@@ -2,7 +2,11 @@ package com.example.financeforteens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import com.amazonaws.mobile.client.AWSMobileClient;
 
 public class MainScreenActivity extends AppCompatActivity {
 
@@ -10,5 +14,11 @@ public class MainScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+    }
+
+    public void signOut(View v) {
+        AWSMobileClient.getInstance().signOut();
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
     }
 }
