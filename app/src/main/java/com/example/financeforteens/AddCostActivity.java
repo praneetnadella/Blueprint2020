@@ -3,15 +3,27 @@ package com.example.financeforteens;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.ResultListener;
+import com.amplifyframework.storage.result.StorageUploadFileResult;
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import static java.nio.charset.Charset.forName;
 
 public class AddCostActivity extends AppCompatActivity {
 
@@ -90,6 +102,31 @@ public class AddCostActivity extends AppCompatActivity {
                 categoryChooser = findViewById(R.id.categories);
                 category = categoryChooser.getSelectedItem().toString();
 
+                Log.i("date", date);
+
+                String result = name + "," + cost + "," + date + "," + category;
+
+                File file = new File(getExternalCacheDir() + "addition.txt");
+                try {
+                    FileUtils.writeStringToFile(file, result, forName("UTF-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Amplify.Storage.uploadFile(
+                        "addition.txt",
+                        file.getAbsolutePath(),
+                        new ResultListener<StorageUploadFileResult>() {
+                            @Override
+                            public void onResult(StorageUploadFileResult result) {
+                                Log.i("StorageQuickStart", "Successfully uploaded: " + result.getKey());
+                            }
+
+                            @Override
+                            public void onError(Throwable error) {
+                                Log.e("StorageQuickstart", "Upload error.", error);
+                            }
+                        }
+                );
             }
         });
 
