@@ -1,15 +1,15 @@
 package com.example.financeforteens;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-
+import android.widget.EditText;
+import android.widget.Spinner;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,6 +21,17 @@ public class AddCostActivity extends AppCompatActivity {
     int month;
     int dayOfMonth;
     Calendar calendar;
+    Date picked;
+    Button add;
+    //Saved values
+    String name;
+    EditText nameText;
+    String category;
+    Spinner categoryChooser;
+    String cost;
+    EditText costText;
+    String date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +56,7 @@ public class AddCostActivity extends AppCompatActivity {
                                 c.set(Calendar.YEAR, year);
                                 c.set(Calendar.MONTH, month);
                                 c.set(Calendar.DAY_OF_MONTH, day);
-                                Date picked = c.getTime();
+                                picked = c.getTime();
                                 if (picked.equals(today))
                                     selectDate.setText("TODAY");
                                 else
@@ -56,5 +67,31 @@ public class AddCostActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+
+
+        Spinner spinner = (Spinner) findViewById(R.id.categories);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.categories, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        add  = findViewById(R.id.addItem);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameText = findViewById(R.id.name);
+                name = nameText.getText().toString();
+                costText = findViewById(R.id.cost);
+                cost = costText.getText().toString();
+                date = picked.toString();
+                categoryChooser = findViewById(R.id.categories);
+                category = categoryChooser.getSelectedItem().toString();
+
+            }
+        });
+
     }
 }

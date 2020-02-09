@@ -18,53 +18,65 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
             android:text="WHAT DID YOU BUY"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="40sp"
             android:textColor="#E46034"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/date"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:height="50dp"
             android:background="#f28a13"
-            android:minWidth="140dp"
             android:text="Today"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
-
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
 
         <EditText
-            android:id="@+id/cost"
+            android:id="@+id/name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Purchase"
+            android:inputType="text" />
+
+        <Spinner
+            android:id="@+id/categories"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
+            android:background="#00FF0000"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="$" />
 
+            <EditText
+                android:id="@+id/cost"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:hint="Cost"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
 
-
+        <Button
+            android:id="@+id/addItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add" />
 
 
     </LinearLayout>
