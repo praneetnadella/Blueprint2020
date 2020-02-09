@@ -16,7 +16,6 @@
         <activity android:name=".AddCostActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".FinanceActivity" />
-        <activity android:name=".StockDataDisplay" />
         <activity android:name=".StockDataEntry" />
         <activity android:name=".MainActivity">
             <intent-filter>

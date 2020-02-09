@@ -6,11 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".StockDataEntry">
 
+    <SeekBar
+        android:id="@+id/priceSlider"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="304dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/shares"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="127dp" />
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="SHARES: 0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/priceSlider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="PRICE: $1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/owned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/owned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+
+        android:fontFamily="sans-serif-condensed"
+        android:text="OWNED: 0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/shares"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+
+        android:fontFamily="sans-serif-condensed"
+        android:text="BALANCE: $100"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hold" />
+
+    <Button
+        android:id="@+id/hold"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Hold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceSlider" />
+
+    <Button
+        android:id="@+id/buy"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:text="Buy"
+        app:layout_constraintStart_toEndOf="@+id/hold"
+        app:layout_constraintTop_toBottomOf="@+id/priceSlider" />
+
+    <Button
+        android:id="@+id/sell"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:text="Sell"
+        app:layout_constraintEnd_toStartOf="@+id/hold"
+        app:layout_constraintTop_toBottomOf="@+id/priceSlider" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
