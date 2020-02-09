@@ -13,10 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="92dp"
+        android:layout_marginEnd="307dp"
+        android:layout_marginBottom="13dp"
         android:backgroundTint="@android:color/white"
         android:onClick="signOut"
         android:text="Sign Out"
         android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,69 +28,81 @@
         android:id="@+id/stockSim"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="@android:color/white"
         android:onClick="stockSim"
         android:text="Try a stock simulator"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signOut" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
         android:id="@+id/finance"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:layout_marginTop="98dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@android:color/white"
         android:onClick="manageAcct"
         android:text="Manage your account"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stockSim" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="89dp"
-        android:layout_height="163dp"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteY="610dp" />
+        app:layout_constraintTop_toBottomOf="@+id/finance"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-light"
+        android:layout_marginTop="5dp"
 
+        android:layout_marginBottom="46dp"
+        android:fontFamily="sans-serif-condensed-light"
         android:text="Teaching kids about Finance"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="212dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="FinanceForTeens"
+        android:text="Finance For Kids"
         android:textColor="@android:color/white"
         android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:text="Try our simulated stock market experience!"
@@ -98,13 +114,15 @@
         app:layout_constraintBottom_toTopOf="@+id/stockSim"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:text="Manage your day-to-day finances!"
@@ -115,5 +133,6 @@
         app:layout_constraintBottom_toTopOf="@+id/finance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stockSim" />
 </androidx.constraintlayout.widget.ConstraintLayout>
