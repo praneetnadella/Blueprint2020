@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-<<<<<<< HEAD
- */
         AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
             @Override
             public void onResult(UserStateDetails userStateDetails) {
@@ -54,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("StorageQuickstart", "Initialization error.", e);
             }
         });
+<<<<<<< HEAD
+=======
+*/
     }
 
     public void login (View v) {

@@ -10,16 +10,17 @@
 
     <ListView
         android:id="@+id/ListViewExample"
-        android:layout_width="292dp"
-        android:layout_height="610dp"
-        android:divider= "@android:color/holo_green_light"
-        android:dividerHeight="5dp"
-        android:clickable="true"
+        android:layout_width="293dp"
+        android:layout_height="382dp"
         android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:divider="@android:color/holo_green_light"
+        android:dividerHeight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576" />
+        app:layout_constraintVertical_bias="0.335" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
