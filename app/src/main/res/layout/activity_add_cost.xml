@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".AddCostActivity">
 
     <LinearLayout
@@ -29,12 +30,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:height="50dp"
+            android:background="#f28a13"
             android:minWidth="140dp"
             android:text="Today"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+
+
+
+
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
