@@ -4,81 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@android:color/white"
+    android:visibility="visible"
     tools:context=".AddCostActivity">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="WHAT DID YOU BUY"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#E46034"
-            android:textSize="40sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/date"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:height="50dp"
-            android:background="#f28a13"
-            android:text="Today"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="WHAT DID YOU BUY"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/buttonColor"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
 
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="Purchase"
-            android:inputType="text" />
+    <Button
+        android:id="@+id/date"
+        android:layout_width="156dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="15dp"
+        android:height="50dp"
+        android:background="@color/buttonColor"
+        android:text="Today"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
-        <Spinner
-            android:id="@+id/categories"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="23dp"
+        android:hint="Name of Purchase"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
 
+    <Spinner
+        android:id="@+id/categories"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="20dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cost"
+        tools:visibility="visible" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#00FF0000"
-            android:gravity="center"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/addItem"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:backgroundTint="@color/buttonColor"
+        android:text="Add"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="$" />
+    <EditText
+        android:id="@+id/cost"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="20dp"
+        android:hint="Cost"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
-            <EditText
-                android:id="@+id/cost"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                android:hint="Cost"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="13dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="$"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cost"
+        app:layout_constraintEnd_toStartOf="@+id/cost"
+        app:layout_constraintTop_toTopOf="@+id/cost" />
 
-        <Button
-            android:id="@+id/addItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add" />
-
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="181dp"
+        android:layout_height="158dp"
+        app:layout_constraintBottom_toTopOf="@+id/addItem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
