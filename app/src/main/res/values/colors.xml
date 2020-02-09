@@ -6,4 +6,7 @@
     <color name="textColor">#000000</color>
     <color name="background">#ffffff</color>
     <color name="buttonColor">#F28A13</color>
+    <color name="text_dark">#d4d4d4</color>
+
+
 </resources>
