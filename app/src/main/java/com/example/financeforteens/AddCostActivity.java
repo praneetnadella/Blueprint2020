@@ -98,7 +98,7 @@ public class AddCostActivity extends AppCompatActivity {
                 name = nameText.getText().toString();
                 costText = findViewById(R.id.cost);
                 cost = costText.getText().toString();
-                date = picked.toString();
+                date = DateFormat.getDateInstance(DateFormat.SHORT).format(picked);
                 categoryChooser = findViewById(R.id.categories);
                 category = categoryChooser.getSelectedItem().toString();
 

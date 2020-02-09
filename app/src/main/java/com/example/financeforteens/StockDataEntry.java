@@ -3,6 +3,7 @@ package com.example.financeforteens;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -23,6 +24,8 @@ public class StockDataEntry extends AppCompatActivity {
     private int price = 1, ownedShares = 0;
     private int numShares = 0;
     private int balance = 100;
+
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

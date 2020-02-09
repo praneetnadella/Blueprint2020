@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/background"
     tools:context=".FinanceActivity">
 
 
     <ListView
         android:id="@+id/ListViewExample"
-        android:layout_width="293dp"
-        android:layout_height="382dp"
+        android:layout_width="292dp"
+        android:layout_height="610dp"
         android:choiceMode="singleChoice"
         android:clickable="true"
         android:divider="@android:color/holo_green_light"

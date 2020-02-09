@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/background"
     tools:context=".StockDataEntry">
 
     <SeekBar
@@ -23,9 +23,9 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif-condensed"
         android:text="SHARES: 0"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/textColor"
         app:layout_constraintBottom_toTopOf="@+id/priceSlider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -37,9 +37,9 @@
         android:layout_marginBottom="50dp"
         android:fontFamily="sans-serif-condensed"
         android:text="PRICE: $1"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/textColor"
         app:layout_constraintBottom_toTopOf="@+id/owned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -52,9 +52,9 @@
 
         android:fontFamily="sans-serif-condensed"
         android:text="OWNED: 0"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/textColor"
         app:layout_constraintBottom_toTopOf="@+id/shares"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -67,9 +67,9 @@
 
         android:fontFamily="sans-serif-condensed"
         android:text="BALANCE: $100"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/textColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,8 +80,8 @@
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:backgroundTint="@color/buttonColor"
         android:text="Hold"
-        android:theme="@style/buttonColor"
         android:textColor="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="40dp"
+        android:backgroundTint="@color/buttonColor"
         android:text="Buy"
+        android:textColor="@color/background"
         app:layout_constraintStart_toEndOf="@+id/hold"
         app:layout_constraintTop_toBottomOf="@+id/priceSlider" />
 
@@ -103,7 +105,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/buttonColor"
         android:text="Sell"
+        android:textColor="@color/background"
         app:layout_constraintEnd_toStartOf="@+id/hold"
         app:layout_constraintTop_toBottomOf="@+id/priceSlider" />
 
