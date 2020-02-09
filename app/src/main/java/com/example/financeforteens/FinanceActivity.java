@@ -1,14 +1,16 @@
 package com.example.financeforteens;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import android.widget.SimpleAdapter;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ public class FinanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance);
         this.simpleAdapterView();
+
     }
 
     private void simpleAdapterView(){
@@ -36,11 +39,12 @@ public class FinanceActivity extends AppCompatActivity {
             Map<String,Object> listItemMap = new HashMap<String,Object>();
             listItemMap.put("title", titleArr[i]);
            // listItemMap.put("description", descArr[i]);
+
             itemDataList.add(listItemMap);
         }
 
         final SimpleAdapter simpleAdapter = new SimpleAdapter(this,itemDataList,android.R.layout.simple_list_item_2,
-                new String[]{"title","description"},new int[]{android.R.id.text1,android.R.id.text2});
+                new String[]{"title"},new int[]{android.R.id.text1,android.R.id.text2});
 
         final ListView listView = findViewById(R.id.ListViewExample);
         listView.setAdapter(simpleAdapter);
@@ -53,6 +57,16 @@ public class FinanceActivity extends AppCompatActivity {
 
                 simpleAdapter.notifyDataSetChanged();
             }
+        });
+
+        Button button;
+        button = findViewById(R.id.Button1);
+        button.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View view){
+               Intent loginIntent = new Intent (FinanceActivity.this, AddCostActivity.class);
+               startActivity(loginIntent);
+           }
         });
     }
 

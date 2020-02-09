@@ -2,7 +2,6 @@ package com.example.financeforteens;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("StorageQuickstart", "Initialization error.", e);
             }
         });
-<<<<<<< HEAD
-=======
 */
     }
 
