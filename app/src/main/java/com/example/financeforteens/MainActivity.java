@@ -22,37 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
 
-                    @Override
-                    public void onResult(UserStateDetails userStateDetails) {
-                        Log.i("INIT", "onResult: " + userStateDetails.getUserState());
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-                        Log.e("INIT", "Initialization error.", e);
-                    }
-                }
-        );
-
-        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
-            @Override
-            public void onResult(UserStateDetails userStateDetails) {
-                try {
-                    Amplify.addPlugin(new AWSS3StoragePlugin());
-                    Amplify.configure(getApplicationContext());
-                    Log.i("StorageQuickstart", "All set and ready to go!");
-                } catch (Exception e) {
-                    Log.e("StorageQuickstart", e.getMessage());
-                }
-            }
-
-            @Override
-            public void onError(Exception e) {
-                Log.e("StorageQuickstart", "Initialization error.", e);
-            }
-        });
 
     }
 

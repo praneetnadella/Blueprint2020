@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +17,10 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.ResultListener;
 import com.amplifyframework.storage.result.StorageDownloadFileResult;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +32,7 @@ public class FinanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance);
 
-        this.simpleAdapterListView();
+        simpleAdapterListView();
 
         Button button;
         button = findViewById(R.id.Button1);
@@ -55,14 +59,31 @@ public class FinanceActivity extends AppCompatActivity {
                     @Override
                     public void onResult(StorageDownloadFileResult result) {
                         Log.i("StorageQuickStart", "Successfully downloaded: " + result.getFile().getName());
+                        Toast.makeText(FinanceActivity.this, "Files downloaded", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onError(Throwable error) {
                         Log.e("StorageQuickStart", error.getMessage());
+                        Toast.makeText(FinanceActivity.this, "Files not downloaded", Toast.LENGTH_LONG).show();
                     }
                 }
         );
+
+        File file = new File(getExternalCacheDir() + "addition.text");
+        System.out.println(file.toString());
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader(file));
+            String st;
+            while ((st = br.readLine()) != null) {
+                nameArr.add(st.substring(0, st.indexOf(",")));
+                String price = st.substring(st.indexOf(",") + 1);
+                priceList.add("$" + price.substring(0, price.indexOf(",")));
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
         ArrayList<Map<String,Object>> itemDataList = new ArrayList<Map<String,Object>>();;
 
