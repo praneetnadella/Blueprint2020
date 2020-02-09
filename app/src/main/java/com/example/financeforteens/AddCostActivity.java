@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddCostActivity extends AppCompatActivity {
 
@@ -36,7 +40,16 @@ public class AddCostActivity extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                                selectDate.setText(day + "/" + (month + 1) + "/" + year);
+                                Calendar c = Calendar.getInstance();
+                                Date today = c.getTime();
+                                c.set(Calendar.YEAR, year);
+                                c.set(Calendar.MONTH, month);
+                                c.set(Calendar.DAY_OF_MONTH, day);
+                                Date picked = c.getTime();
+                                if (picked.equals(today))
+                                    selectDate.setText("TODAY");
+                                else
+                                    selectDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(picked));
                             }
                         }, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
