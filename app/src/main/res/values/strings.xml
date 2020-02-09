@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">FinanceForTeens</string>
 
+    <string-array name="categories">
+        <item>Food</item>
+        <item>Shopping</item>
+        <item>Other</item>
+    </string-array>
+>>>>>>> 28fe122597dac5371a734f8f09222699a3e0c1d7
 </resources>
