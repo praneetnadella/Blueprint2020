@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("StorageQuickstart", "Initialization error.", e);
             }
         });
-=======
-*/
->>>>>>> 70431355ebbe993bf2a69b99abb6b0149c6b371e
     }
 
     public void login (View v) {
