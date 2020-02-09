@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<<<<<<< HEAD
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -31,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-=======
+
     <Button
         android:id="@+id/login"
         android:layout_width="125dp"
@@ -93,6 +92,5 @@
         app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finance" />
->>>>>>> 9a24a50d11d216c72c0bae6ae1be1a5b29ea0b06
 
 </androidx.constraintlayout.widget.ConstraintLayout>
