@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-<<<<<<< HEAD
-
         AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
             @Override
             public void onResult(UserStateDetails userStateDetails) {
