@@ -1,0 +1,20 @@
+{
+    "blueprint": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-financeforteens-blueprint-92739-authRole",
+            "UnauthRoleArn": "arn:aws:iam::339050237999:role/amplify-financeforteens-blueprint-92739-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::339050237999:role/amplify-financeforteens-blueprint-92739-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-financeforteens-blueprint-92739-deployment",
+            "UnauthRoleName": "amplify-financeforteens-blueprint-92739-unauthRole",
+            "StackName": "amplify-financeforteens-blueprint-92739",
+            "StackId": "arn:aws:cloudformation:us-east-1:339050237999:stack/amplify-financeforteens-blueprint-92739/54b83bb0-4b48-11ea-8ae5-0eb49284c068",
+            "AmplifyAppId": "d1su74d36b98rb"
+        },
+        "categories": {
+            "auth": {
+                "financeforteensa3a2df00": {}
+            }
+        }
+    }
+}
