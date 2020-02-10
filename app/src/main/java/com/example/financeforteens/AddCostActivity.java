@@ -2,6 +2,7 @@ package com.example.financeforteens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,10 +14,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferNetworkLossHandler;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferState;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.ResultListener;
 import com.amplifyframework.storage.result.StorageDownloadFileResult;
 import com.amplifyframework.storage.result.StorageUploadFileResult;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 import org.apache.commons.io.FileUtils;
 
@@ -54,6 +65,24 @@ public class AddCostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cost);
+
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+            @Override
+            public void onResult(UserStateDetails userStateDetails) {
+                try {
+                    Amplify.addPlugin(new AWSS3StoragePlugin());
+                    Amplify.configure(getApplicationContext());
+                    Log.i("StorageQuickstart", "All set and ready to go!");
+                } catch (Exception e) {
+                    Log.e("StorageQuickstart", e.getMessage());
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("StorageQuickstart", "Initialization error.", e);
+            }
+        });
 
         selectDate = findViewById(R.id.date);
 
@@ -131,7 +160,7 @@ public class AddCostActivity extends AppCompatActivity {
                         }
                 );
 
-                File file = new File(getExternalCacheDir() + "addition.text");
+                File file = new File(getExternalCacheDir() + "buy.text");
                 try {
                     BufferedWriter writer = new BufferedWriter(new FileWriter(file));
                     writer.append(result);
@@ -141,7 +170,7 @@ public class AddCostActivity extends AppCompatActivity {
                 }
 
                 Amplify.Storage.uploadFile(
-                        "addition.txt",
+                        "buy.txt",
                         file.getAbsolutePath(),
                         new ResultListener<StorageUploadFileResult>() {
                             @Override
@@ -155,6 +184,9 @@ public class AddCostActivity extends AppCompatActivity {
                             @Override
                             public void onError(Throwable error) {
                                 Log.e("StorageQuickstart", "Upload error.", error);
+                                Toast.makeText(AddCostActivity.this, "Your addition has been saved", Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(AddCostActivity.this, FinanceActivity.class);
+                                startActivity(i);
                             }
                         }
                 );

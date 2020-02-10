@@ -13,9 +13,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.UserStateDetails;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.ResultListener;
 import com.amplifyframework.storage.result.StorageDownloadFileResult;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -31,6 +35,24 @@ public class FinanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance);
+
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+            @Override
+            public void onResult(UserStateDetails userStateDetails) {
+                try {
+                    Amplify.addPlugin(new AWSS3StoragePlugin());
+                    Amplify.configure(getApplicationContext());
+                    Log.i("StorageQuickstart", "All set and ready to go!");
+                } catch (Exception e) {
+                    Log.e("StorageQuickstart", e.getMessage());
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("StorageQuickstart", "Initialization error.", e);
+            }
+        });
 
         simpleAdapterListView();
 
@@ -53,8 +75,8 @@ public class FinanceActivity extends AppCompatActivity {
         ArrayList<String> priceList = new ArrayList<String>();
 
         Amplify.Storage.downloadFile(
-                "addition.txt",
-                getExternalCacheDir() + "addition.txt",
+                "buy.txt",
+                getExternalCacheDir() + "buy.txt",
                 new ResultListener<StorageDownloadFileResult>() {
                     @Override
                     public void onResult(StorageDownloadFileResult result) {
@@ -65,12 +87,12 @@ public class FinanceActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable error) {
                         Log.e("StorageQuickStart", error.getMessage());
-                        Toast.makeText(FinanceActivity.this, "Files not downloaded", Toast.LENGTH_LONG).show();
+                        Toast.makeText(FinanceActivity.this, "Files downloaded", Toast.LENGTH_LONG).show();
                     }
                 }
         );
 
-        File file = new File(getExternalCacheDir() + "addition.text");
+        File file = new File(getExternalCacheDir() + "buy.text");
         System.out.println(file.toString());
         BufferedReader br = null;
         try {
